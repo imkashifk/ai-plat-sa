@@ -1,0 +1,239 @@
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+@layer base {
+  :root {
+    --background: 0 0% 100%;
+    --foreground: 0 0% 3.9%;
+    --card: 0 0% 100%;
+    --card-foreground: 0 0% 3.9%;
+    --popover: 0 0% 100%;
+    --popover-foreground: 0 0% 3.9%;
+    --primary: 221.2 83.2% 53.3%;
+    --primary-foreground: 210 40% 98%;
+    --secondary: 210 40% 96.1%;
+    --secondary-foreground: 222.2 47.4% 11.2%;
+    --muted: 210 40% 96.1%;
+    --muted-foreground: 215.4 16.3% 46.9%;
+    --accent: 210 40% 96.1%;
+    --accent-foreground: 222.2 47.4% 11.2%;
+    --destructive: 0 84.2% 60.2%;
+    --destructive-foreground: 210 40% 98%;
+    --border: 214.3 31.8% 91.4%;
+    --input: 214.3 31.8% 91.4%;
+    --ring: 221.2 83.2% 53.3%;
+    --radius: 0.75rem;
+  }
+
+  .dark {
+    --background: 222.2 84% 4.9%;
+    --foreground: 210 40% 98%;
+    --card: 222.2 84% 4.9%;
+    --card-foreground: 210 40% 98%;
+    --popover: 222.2 84% 4.9%;
+    --popover-foreground: 210 40% 98%;
+    --primary: 217.2 91.2% 59.8%;
+    --primary-foreground: 222.2 47.4% 11.2%;
+    --secondary: 217.2 32.6% 17.5%;
+    --secondary-foreground: 210 40% 98%;
+    --muted: 217.2 32.6% 17.5%;
+    --muted-foreground: 215 20.2% 65.1%;
+    --accent: 217.2 32.6% 17.5%;
+    --accent-foreground: 210 40% 98%;
+    --destructive: 0 62.8% 30.6%;
+    --destructive-foreground: 210 40% 98%;
+    --border: 217.2 32.6% 17.5%;
+    --input: 217.2 32.6% 17.5%;
+    --ring: 224.3 76.3% 48%;
+  }
+}
+
+@layer base {
+  * {
+    @apply border-border;
+  }
+  body {
+    @apply bg-background text-foreground antialiased pt-[6.5rem];
+  }
+}
+
+/* Container styles */
+.container {
+  @apply px-4 sm:px-6 lg:px-8 mx-auto max-w-7xl;
+}
+
+/* Improved spacing for sections */
+section {
+  @apply py-12 md:py-16 lg:py-24;
+}
+
+/* Hero section specific styles */
+.hero-section {
+  @apply relative min-h-[85vh] flex items-center py-12 lg:py-0;
+  background: linear-gradient(
+    135deg,
+    hsl(var(--primary)/0.1) 0%,
+    transparent 50%
+  );
+}
+
+/* Card hover effects */
+.card-hover {
+  @apply transition-all duration-300 hover:shadow-lg hover:-translate-y-1;
+}
+
+/* Custom animations */
+@keyframes float {
+  0%, 100% { transform: translateY(0); }
+  50% { transform: translateY(-10px); }
+}
+
+.float-animation {
+  animation: float 3s ease-in-out infinite;
+}
+
+/* Responsive text sizes */
+@screen sm {
+  h1 { @apply text-3xl sm:text-4xl md:text-5xl lg:text-6xl; }
+  h2 { @apply text-2xl sm:text-3xl md:text-4xl; }
+  h3 { @apply text-xl sm:text-2xl md:text-3xl; }
+}
+
+/* Custom scrollbar */
+::-webkit-scrollbar {
+  @apply w-2;
+}
+
+::-webkit-scrollbar-track {
+  @apply bg-muted;
+}
+
+::-webkit-scrollbar-thumb {
+  @apply bg-primary/30 rounded-full hover:bg-primary/50;
+}
+
+/* Button improvements */
+.btn-primary {
+  @apply bg-primary hover:bg-primary/90 text-primary-foreground font-medium;
+}
+
+.btn-outline {
+  @apply border-2 border-primary/20 hover:border-primary/40 text-primary;
+}
+
+/* Input focus states */
+.input-focus {
+  @apply focus:ring-2 focus:ring-primary/20 focus:border-primary;
+}
+
+/* Header alignment fixes */
+.header-container {
+  @apply flex items-center justify-between h-16 px-4 sm:px-6 lg:px-8;
+}
+
+/* Responsive padding adjustments */
+.section-padding {
+  @apply px-4 sm:px-6 lg:px-8;
+}
+
+/* Footer specific styles */
+.footer-dark {
+  @apply bg-[#111827] text-white;
+}
+
+.footer-link {
+  @apply text-gray-300 hover:text-primary transition-colors duration-300;
+}
+
+.footer-heading {
+  @apply text-lg font-semibold mb-4 sm:mb-6;
+}
+
+.footer-social-icon {
+  @apply w-8 h-8 sm:w-10 sm:h-10 rounded-lg bg-gray-800 flex items-center justify-center hover:bg-primary hover:text-white transition-all duration-300;
+}
+
+/* Navigation menu responsive styles */
+.navigation-menu {
+  @apply hidden md:flex;
+}
+
+.mobile-menu {
+  @apply md:hidden;
+}
+
+/* Grid layouts responsive adjustments */
+.responsive-grid {
+  @apply grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 xl:grid-cols-4 gap-4 sm:gap-6;
+}
+
+/* Card layouts responsive adjustments */
+.card-grid {
+  @apply grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-4 sm:gap-6;
+}
+
+/* Form elements responsive styles */
+.form-container {
+  @apply max-w-sm sm:max-w-md md:max-w-lg mx-auto;
+}
+
+/* Hero section responsive adjustments */
+.hero-content {
+  @apply flex flex-col lg:flex-row items-center gap-8 lg:gap-12;
+}
+
+/* Stats section responsive layout */
+.stats-grid {
+  @apply grid grid-cols-2 sm:grid-cols-2 md:grid-cols-4 gap-4 sm:gap-6;
+}
+
+/* Features section responsive layout */
+.features-grid {
+  @apply grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-6 sm:gap-8;
+}
+
+/* Testimonials responsive layout */
+.testimonials-grid {
+  @apply grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6;
+}
+
+/* Programs list responsive layout */
+.programs-grid {
+  @apply grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 xl:grid-cols-4 gap-4 sm:gap-6;
+}
+
+/* Dashboard layout responsive adjustments */
+.dashboard-layout {
+  @apply grid grid-cols-1 lg:grid-cols-[240px_1fr] gap-6;
+}
+
+/* Sidebar responsive behavior */
+.sidebar {
+  @apply hidden lg:block w-60 fixed top-0 left-0 h-screen overflow-y-auto;
+}
+
+/* Mobile navigation menu */
+.mobile-nav {
+  @apply lg:hidden;
+}
+
+/* Responsive typography */
+.responsive-text {
+  @apply text-sm sm:text-base lg:text-lg;
+}
+
+/* Responsive padding for sections */
+.section-spacing {
+  @apply py-8 sm:py-12 lg:py-16;
+}
+
+/* Responsive margins */
+.responsive-margin {
+  @apply my-4 sm:my-6 lg:my-8;
+}
+
+/* Responsive container padding */
+.container-padding {
+  @apply px-4 sm:px-6 lg:px-8;
+}
